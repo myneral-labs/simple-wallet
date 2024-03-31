@@ -35,10 +35,22 @@ export async function getPrices(): Promise<PricesInterface> {
     }),
   );
 
+  // Manually add 'ghc' token with fixed exchange rate
+  const ghcToken = {
+    name: 'ghc',
+    values: {
+      ask: 100, // replace with your fixed ask value
+      totalAsk: 100, // replace with your fixed totalAsk value
+      bid: 100, // replace with your fixed bid value
+      totalBid: 100, // replace with your fixed totalBid value
+      time: Date.now(), // replace with your fixed time value
+    },
+  };
+
   if (data) {
     return {
       success: true,
-      data,
+      data: [...data, ghcToken], // add ghcToken to the data array
     };
   } else {
     return {

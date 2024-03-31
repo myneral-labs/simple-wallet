@@ -5,6 +5,7 @@ import Flex from 'src/components/Shared/Flex';
 
 import IconETH from 'src/components/Icons/ETH';
 import IconDAI from 'src/components/Icons/DAI';
+import IconGHC from 'src/components/Icons/GHC';
 
 import bigNumberTokenToString from 'src/hooks/useUtils';
 
@@ -35,11 +36,11 @@ const Component = (props) => {
   return (
     <Box {...style} onClick={() => !readOnly && onClick(name)} tabIndex={readOnly ? -1 : 1}>
       <Flex align='center' gap={8}>
-        {name === 'eth' ? <IconETH /> : <IconDAI />}
+        {name === 'WellMax Credit' ? <IconGHC /> : <IconETH />}
         <Text fontWeight='bold'>{name.toUpperCase()}</Text>
       </Flex>
       <Flex direction='column' align='flex-end'>
-        <Text isBold>${Number(price).toFixed(2)}</Text>
+        <Text isBold>GH₵{Number(price).toFixed(2)}</Text>
         <Text size='small'>{Number(bigNumberTokenToString(token)).toFixed(4) || '0.00'}</Text>
       </Flex>
     </Box>

@@ -7,7 +7,7 @@ export default class Document extends NextDocument {
     return (
       <Html>
         <Head>
-          <title>Wellmax Credit - Wallet</title>
+          {/* <title>Wellmax Credit - Wallet</title> */}
 
           {/* Favicon */}
           <link rel='apple-touch-icon' sizes='180x180' href='/img/favicon/apple-touch-icon.png' />

@@ -8,11 +8,12 @@ import { useAccount } from './Account';
 
 import abiDAI from '../utils/abi/DAI.json';
 
-type TokenName = 'eth' | 'dai';
+type TokenName = 'eth' | 'dai' | 'ghc';
 interface TokenContextInterface {
   tokens: {
     eth: BigNumber;
     dai: BigNumber;
+    ghc: BigNumber;
   };
   sendTransaction: (address: string, mount: number, token: TokenName) => null;
 }

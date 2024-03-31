@@ -214,7 +214,7 @@ const Component = ({ onClose }) => {
                 </Text>
                 <Divider y={16} />
                 <Token
-                  name='GH₵'
+                  name='GHC'
                   token={tokens?.eth}
                   price={totalTokensUSD?.eth}
                   disabled={!toAddress}

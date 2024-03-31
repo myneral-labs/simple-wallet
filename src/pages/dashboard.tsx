@@ -33,6 +33,7 @@ export async function getStaticProps() {
         price: {
           eth: data.find((token) => token.name === 'eth'),
           dai: data.find((token) => token.name === 'dai'),
+          ghc: data.find((token) => token.name === 'ghc'),
         },
       },
     };
@@ -88,10 +89,10 @@ const Dashboard = ({ price }) => {
             </Flex>
             <Divider y={16} />
             <Text fontSize={32} isBold>
-              GH₵
+              GH₵ 
               {formatPrice(
                 Number(
-                  cryptoToGHS(price?.eth?.values?.bid, tokens?.eth) + cryptoToGHS(price?.dai?.values?.bid, tokens?.dai),
+                  cryptoToGHS(price?.ghc?.values?.bid, tokens?.eth) + cryptoToGHS(price?.dai?.values?.bid, tokens?.dai),
                 ).toFixed(2),
                 2,
               )}
@@ -114,8 +115,8 @@ const Dashboard = ({ price }) => {
           <Divider y={32} />
 
           {/* Tokens */}
-          <Token name='eth' token={tokens?.eth} price={cryptoToGHS(price?.eth?.values?.bid, tokens?.eth)} readOnly />
-          <Token name='dai' token={tokens?.dai} price={cryptoToGHS(price?.dai?.values?.bid, tokens?.dai)} readOnly />
+          <Token name='WellMax Credit' token={tokens?.eth} price={cryptoToGHS(price?.ghc?.values?.bid, tokens?.eth)} readOnly />
+          {/* <Token name='dai' token={tokens?.dai} price={cryptoToGHS(price?.dai?.values?.bid, tokens?.dai)} readOnly /> */}
         </Container>
       </ScreenView>
 
