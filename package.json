@@ -7,11 +7,14 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "next export",
+    "static": "EXPORT=1 next build && yarn cap sync",
     "codegen": "graphclient build",
     "dev-gc": "graphclient serve-dev"
   },
   "dependencies": {
+    "@capacitor/android": "^5.7.4",
+    "@capacitor/core": "^5.7.4",
+    "@capacitor/ios": "^5.7.4",
     "@chakra-ui/icons": "^2.0.2",
     "@chakra-ui/react": "^2.2.1",
     "@chakra-ui/theme-tools": "^2.0.2",
@@ -40,21 +43,23 @@
     "tiny-secp256k1": "^2.2.3"
   },
   "devDependencies": {
+    "@capacitor/cli": "^5.7.4",
     "@graphprotocol/client-cli": "^2.2.15",
     "@types/node": "^18.0.0",
     "@types/react": "^18.0.23",
     "@types/react-dom": "^18.0.0",
     "typescript": "^4.7.2"
   },
-  "authors": [{
-    "email": "llamasjonat@gmail.com",
-    "name": "Jonathan Llamas",
-    "url": "https://twitter.com/unllamas"
-  },
-  {
-    "email": "max@myneral.com",
-    "name": "Max Boender",
-    "url": "https://myneral.com"
-  }
-]
+  "authors": [
+    {
+      "email": "llamasjonat@gmail.com",
+      "name": "Jonathan Llamas",
+      "url": "https://twitter.com/unllamas"
+    },
+    {
+      "email": "max@myneral.com",
+      "name": "Max Boender",
+      "url": "https://myneral.com"
+    }
+  ]
 }

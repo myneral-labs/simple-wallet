@@ -12,7 +12,7 @@ export function BlockchainWrapper({ children }) {
       // Mainnet: homestead
       // Testnet: goerli
       // const myneral = new ethers.providers.InfuraProvider('goerli', process.env.INFURA_TOKEN_API);
-      const myneral = new ethers.providers.JsonRpcProvider('https://rpc2.sepolia.org');
+      const myneral = new ethers.providers.JsonRpcProvider(process.env.JSON_RPC_URL);
       setMyneralProvider(myneral);
     }
   }, [myneralProvider]);
