@@ -7,7 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "static": "EXPORT=1 next build && yarn cap sync",
+    "mobile": "EXPORT=1 next build && yarn cap sync",
     "codegen": "graphclient build",
     "dev-gc": "graphclient serve-dev"
   },

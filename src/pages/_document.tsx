@@ -1,6 +1,7 @@
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
 import { ColorModeScript } from '@chakra-ui/react';
 
+
 export default class Document extends NextDocument {
   render() {
     return (
@@ -36,6 +37,14 @@ export default class Document extends NextDocument {
           <meta name='twitter:card' content='summary_large_image' />
           <meta name='twitter:image' content='/img/social/twitter-600x330.jpg' />
           <meta name='twitter:url' content='https://wellmax.app' />
+          {/* Add padding to the top of the body on iOS devices */}
+          {process.env.EXPORT == '1' && (
+            <style>{`
+              body {
+                padding-top: 35px;
+              }
+            `}</style>
+          )}
         </Head>
         <body>
           <ColorModeScript />
