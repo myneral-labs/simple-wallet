@@ -81,8 +81,8 @@ const Create = () => {
       }
     } else {
       toast({
-        title: 'Contraseña incorrecta',
-        description: 'Las contraseñas no coinciden.',
+        title: 'Incorrect password',
+        description: 'Passwords do not match.',
         status: 'warning',
         duration: 9000,
         isClosable: true,
@@ -103,7 +103,7 @@ const Create = () => {
   return (
     <>
       <Head>
-        <title>Crear - Sallet</title>
+        <title>Create - Wellmax</title>
       </Head>
       <Navbar />
       <ScreenView justify='center'>
@@ -111,15 +111,15 @@ const Create = () => {
           <Container size='small'>
             <Flex flexDirection={'column'} justifyContent={{ base: 'space-between', md: 'center' }} gap={4}>
               <Flex direction='column'>
-                <Heading as='h2'>Cree una contraseña</Heading>
+                <Heading as='h2'>Create a password</Heading>
                 <Divider y={8} />
                 <Text>
-                  Si bien toda información queda almacenada en su dispositivo, necesitamos un método de seguridad mínimo
-                  para manejar sus fondos.
+                  Although all information is stored on your device, we need a security method
+                  to manage your app usage.
                 </Text>
                 <Divider y={16} />
                 <Input
-                  placeholder='Escriba su contraseña'
+                  placeholder='Set your password'
                   value={password}
                   onChange={handleSetPassword}
                   name='password'
@@ -128,7 +128,7 @@ const Create = () => {
                 />
                 <Divider y={8} />
                 <Input
-                  placeholder='Verifique su contraseña'
+                  placeholder='Verify your password'
                   value={validatePassword}
                   onChange={handleSetValidatePass}
                   disabled={!showValidate}
@@ -146,10 +146,10 @@ const Create = () => {
           <Divider y={16} />
           <Flex direction={{ base: 'column-reverse', md: 'row' }} justify={'center'} gap={8}>
             <Link type='bezeledGray' href='/' passHref>
-              Cancelar
+              Cancel
             </Link>
             <Button variant='solid' isDisabled={!isValid || loading} onClick={handleConfirm}>
-              {loading ? <Spinner /> : 'Crear'}
+              {loading ? <Spinner /> : 'Create'}
             </Button>
           </Flex>
           <Divider y={16} />

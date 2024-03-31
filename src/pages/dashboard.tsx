@@ -19,7 +19,7 @@ import Divider from 'src/components/Shared/Divider';
 
 import Token from '../components/Token';
 
-import { cryptoToUSD, formatPrice } from '../hooks/usePrice';
+import { cryptoToGHS, formatPrice } from '../hooks/usePrice';
 
 // import { getPrice } from './api/thegraph';
 import { getPrices } from './api/prices';
@@ -64,7 +64,7 @@ const Dashboard = ({ price }) => {
   return (
     <>
       <Head>
-        <title>Wallet - Sallet</title>
+        <title>Wallet - Wellmax</title>
       </Head>
       <Navbar type={openModal ? 'modal' : 'page'} title={typeModal || ''} onClose={handleCloseFullModal} />
       <ScreenView justifyContent='center'>
@@ -72,7 +72,7 @@ const Dashboard = ({ price }) => {
           {/* Balance */}
           <Flex direction='column' align='center'>
             <Flex justify='center' align='center' gap={8}>
-              <Text size='small'>Su balance</Text>
+              <Text size='small'>Your Balance</Text>
               {/* POC */}
               <TextDemo
                 bg='terciary15'
@@ -83,15 +83,15 @@ const Dashboard = ({ price }) => {
                 fontWeight={'bold'}
                 textTransform={'uppercase'}
               >
-                Testnet
+                GhanaNet
               </TextDemo>
             </Flex>
             <Divider y={16} />
             <Text fontSize={32} isBold>
-              $
+              GH₵
               {formatPrice(
                 Number(
-                  cryptoToUSD(price?.eth?.values?.bid, tokens?.eth) + cryptoToUSD(price?.dai?.values?.bid, tokens?.dai),
+                  cryptoToGHS(price?.eth?.values?.bid, tokens?.eth) + cryptoToGHS(price?.dai?.values?.bid, tokens?.dai),
                 ).toFixed(2),
                 2,
               )}
@@ -102,11 +102,11 @@ const Dashboard = ({ price }) => {
 
           {/* Botones */}
           <Flex justify='center'>
-            <ButtonCircle brand='secondary' onClick={() => handleOpenFullModal('send')} title='Enviar'>
+            <ButtonCircle brand='secondary' onClick={() => handleOpenFullModal('send')} title='Send'>
               <ArrowUp color='#111' />
             </ButtonCircle>
             <Divider x={16} />
-            <ButtonCircle onClick={() => handleOpenFullModal('receive')} title='Recibir'>
+            <ButtonCircle onClick={() => handleOpenFullModal('receive')} title='Receive'>
               <ArrowDown color='#111' />
             </ButtonCircle>
           </Flex>
@@ -114,8 +114,8 @@ const Dashboard = ({ price }) => {
           <Divider y={32} />
 
           {/* Tokens */}
-          <Token name='eth' token={tokens?.eth} price={cryptoToUSD(price?.eth?.values?.bid, tokens?.eth)} readOnly />
-          <Token name='dai' token={tokens?.dai} price={cryptoToUSD(price?.dai?.values?.bid, tokens?.dai)} readOnly />
+          <Token name='eth' token={tokens?.eth} price={cryptoToGHS(price?.eth?.values?.bid, tokens?.eth)} readOnly />
+          <Token name='dai' token={tokens?.dai} price={cryptoToGHS(price?.dai?.values?.bid, tokens?.dai)} readOnly />
         </Container>
       </ScreenView>
 
@@ -127,12 +127,11 @@ const Dashboard = ({ price }) => {
             <Flex direction={{ base: 'column', md: 'row' }} align='normal' justify='center' gap={8}>
               <Flex align='center'>
                 <Text>
-                  Es muy importante que guardes bien esta <strong>frase semilla</strong>, ya que es la{' '}
-                  <strong>llave principal a sus cripto-activos</strong>.
+                  It is very important you keep this <strong>back up phrase</strong>, safe.
                 </Text>
               </Flex>
               <Link href='/settings/backup' brand='terciary' passHref>
-                Guardar frase semilla
+                Backup Phrase
               </Link>
             </Flex>
             <Divider y={16} />

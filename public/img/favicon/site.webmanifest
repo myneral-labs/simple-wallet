@@ -1,6 +1,6 @@
 {
-    "name": "Sallet.app",
-    "short_name": "Sallet.app",
+    "name": "Wellmax.app",
+    "short_name": "Wellmax.app",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -15,6 +15,6 @@
     ],
     "theme_color": "#111111",
     "background_color": "#111111",
-    "start_url": "https://www.sallet.app/",
+    "start_url": "https://www.wellmax.app/",
     "display": "standalone"
 }

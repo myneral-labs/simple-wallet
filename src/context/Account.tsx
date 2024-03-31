@@ -30,7 +30,7 @@ export function AccountWrapper({ children }) {
   const toast = useToast();
 
   // Provider
-  const { kovanProvider } = useBlockchain();
+  const { myneralProvider } = useBlockchain();
 
   // Dexie
   const walletsDB = useLiveQuery(() => db.wallets.toArray());
@@ -70,7 +70,7 @@ export function AccountWrapper({ children }) {
         const mnemonic = decrypt(JSON.parse(decryptAccount).seedPhrase).replaceAll('"', '');
         const walletAccount = ethers.Wallet.fromMnemonic(mnemonic);
 
-        const signer = walletAccount.connect(kovanProvider);
+        const signer = walletAccount.connect(myneralProvider);
         setSigner(signer);
       }
     }

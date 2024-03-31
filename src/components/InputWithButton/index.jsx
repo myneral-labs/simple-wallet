@@ -70,7 +70,7 @@ const Component = (props) => {
       />
       <Box {...buttonBoxStyle}>
         <Button size='small' type='bezeled' onClick={handlePasteAddress} disabled={value}>
-          Pegar
+          To Send
         </Button>
       </Box>
     </Box>

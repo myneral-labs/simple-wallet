@@ -1,7 +1,8 @@
 {
   "name": "simple-wallet",
   "version": "0.1.1",
-  "license": "GPL-3.0-or-later",
+  "license": "UNLICENSED",
+  "private": true,
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -45,9 +46,15 @@
     "@types/react-dom": "^18.0.0",
     "typescript": "^4.7.2"
   },
-  "author": {
+  "authors": [{
     "email": "llamasjonat@gmail.com",
     "name": "Jonathan Llamas",
     "url": "https://twitter.com/unllamas"
+  },
+  {
+    "email": "max@myneral.com",
+    "name": "Max Boender",
+    "url": "https://myneral.com"
   }
+]
 }

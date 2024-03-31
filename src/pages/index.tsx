@@ -30,19 +30,19 @@ const Index = () => {
         <Container size='small'>
           <Flex direction={'column'} align='center'>
             <Heading as='h1' align='center'>
-              Aceptar cripto-activos nunca fue tan fácil.
+              WELLMAX Credit
             </Heading>
             <Text size='large' align='center'>
-              Ten el control total de tus finanzas. <br />
-              <strong>Wallet non-custodial</strong> para <strong>ETH</strong>.
+              Take total control <br />
+              <strong>of your finances</strong> with <strong>ease</strong>.
             </Text>
             <Divider y={16} />
             <Flex direction={{ base: 'column-reverse', md: 'row' }} gap={8}>
               <Link href='/signin' type='bezeled' passHref>
-                Ya tengo una billetera
+                I have an account
               </Link>
               <Link href='/create' passHref>
-                Crear billetera
+                Create Account
               </Link>
             </Flex>
           </Flex>

@@ -122,19 +122,19 @@ const Signup = () => {
   return (
     <>
       <Head>
-        <title>Ingresar - Sallet</title>
+        <title>Sign in - Wellmax</title>
       </Head>
       <Navbar />
       <ScreenView justify='center'>
         <Container size='small'>
           {showMnemonic ? (
             <>
-              <Heading as='h2'>Frase semilla</Heading>
+              <Heading as='h2'>Seed phrase</Heading>
               <Divider y={8} />
               <Text size='lg'>
-                Ingresa tu frase semilla o reutiliza alguna de otras wallets non-custodial.{' '}
+                Enter your seed phrase or reuse one from other non-custodial wallets.{' '}
                 <LinkBox color='#B3E0B8' textDecoration='underline'>
-                  Te gustaria conocer las alternativas?
+                  Would you like to know the alternatives?
                 </LinkBox>
               </Text>
               <Divider y={16} />
@@ -143,22 +143,22 @@ const Signup = () => {
             </>
           ) : (
             <>
-              <Heading as='h2'>Contraseña</Heading>
+              <Heading as='h2'>Password</Heading>
               <Divider y={8} />
               <Text size='lg'>
-                Si bien somos localfirst, necesitamos saber que eres realmente tu quien mueve fondos.
+                Although we are local-first, we need to know that it is really you who is moving the funds.
               </Text>
               <Divider y={16} />
               <Input
                 h='60px'
-                placeholder='Escriba su contraseña'
+                placeholder='Write your password'
                 value={password}
                 onChange={(e) => handleSetPassword(e.target.value)}
               />
               <Divider y={8} />
               <Input
                 h='60px'
-                placeholder='Verifique su contraseña'
+                placeholder='Verify your password'
                 value={validatePassword}
                 onChange={(e) => handleSetValidatePass(e.target.value)}
                 disabled={!showValidate}
@@ -174,19 +174,19 @@ const Signup = () => {
             {showMnemonic ? (
               <>
                 <Link type='bezeledGray' href='/' passHref>
-                  Cancelar
+                  Cancel
                 </Link>
                 <Button brand='secondary' onClick={handleLoginWallet} isDisabled={loading}>
-                  {loading ? 'Cargando...' : 'Validar'}
+                  {loading ? 'Loading...' : 'Validate'}
                 </Button>
               </>
             ) : (
               <>
                 <Link type='bezeledGray' href='/' passHref>
-                  Cancelar
+                  Cancel
                 </Link>
                 <Button isDisabled={!isValid || loading} onClick={handleConfirm}>
-                  {loading ? 'Cargando...' : 'Continuar'}
+                  {loading ? 'Loading...' : 'Continue'}
                 </Button>
               </>
             )}

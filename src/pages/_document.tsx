@@ -6,7 +6,7 @@ export default class Document extends NextDocument {
     return (
       <Html>
         <Head>
-          <title>Sallet - Wallet non custodial</title>
+          <title>Wellmax - Wallet non custodial</title>
 
           {/* Favicon */}
           <link rel='apple-touch-icon' sizes='180x180' href='/img/favicon/apple-touch-icon.png' />
@@ -24,18 +24,18 @@ export default class Document extends NextDocument {
           />
           <meta name='robots' content='index,follow' />
 
-          <meta property='og:title' content='Sallet - Wallet non custodial' />
+          <meta property='og:title' content='Wellmax - Wallet non custodial' />
           <meta property='og:description' content='Recibe pagos internacionales en tan solo 30 segundos.' />
           <meta property='og:locale' content='es_ES' />
           <meta property='og:type' content='website' />
           <meta property='og:image' content='/img/social/facebook-1200x630.jpg' />
-          <meta property='og:url' content='https://sallet.app' />
+          <meta property='og:url' content='https://wellmax.app' />
 
-          <meta name='twitter:title' content='Sallet - Wallet non custodial' />
+          <meta name='twitter:title' content='Wellmax - Wallet non custodial' />
           <meta name='twitter:description' content='Recibe pagos internacionales en tan solo 30 segundos.' />
           <meta name='twitter:card' content='summary_large_image' />
           <meta name='twitter:image' content='/img/social/twitter-600x330.jpg' />
-          <meta name='twitter:url' content='https://sallet.app' />
+          <meta name='twitter:url' content='https://wellmax.app' />
         </Head>
         <body>
           <ColorModeScript />

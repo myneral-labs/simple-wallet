@@ -19,7 +19,7 @@ import Input from 'src/components/Shared/Input';
 import Hr from 'src/components/Shared/Hr';
 import Divider from 'src/components/Shared/Divider';
 
-import { cryptoToUSD } from 'src/hooks/usePrice';
+import { cryptoToGHS } from 'src/hooks/usePrice';
 
 // import { getPrice } from 'src/pages/api/thegraph';
 import { getPrices } from 'src/pages/api/prices';
@@ -69,8 +69,8 @@ const Component = ({ onClose }) => {
           // setPriceETH(eth?.usd);
 
           setTotalTokensUSD({
-            eth: cryptoToUSD(prices?.eth?.values?.bid, tokens.eth),
-            dai: cryptoToUSD(prices?.dai?.values?.bid, tokens.dai),
+            eth: cryptoToGHS(prices?.eth?.values?.bid, tokens.eth),
+            dai: cryptoToGHS(prices?.dai?.values?.bid, tokens.dai),
           });
         }
       } catch (error) {
@@ -185,14 +185,14 @@ const Component = ({ onClose }) => {
                 />
                 <Divider y={16} />
                 <Text align='center'>
-                  Al enviar <strong>siempre verifica</strong> que las direcciones pertenecen al ecosistema de Ethereum.
+                  We <strong>always verify</strong> if the address is valid.
                 </Text>
               </>
             ) : (
               <>
                 <Flex justify='space-between' align='center'>
                   {/* <AddressBox title='Destino' address={toAddress} /> */}
-                  <Text size='small'>Destino</Text>
+                  <Text size='small'>Destination</Text>
                   <Flex align='center' justify='end' gap={8}>
                     <Text isBold>{useTruncatedAddress(toAddress)}</Text>
                     <div>
@@ -210,11 +210,11 @@ const Component = ({ onClose }) => {
             {step === 'token' ? (
               <>
                 <Text size='large' isBold>
-                  Que deseas enviar
+                  What do you want to send?
                 </Text>
                 <Divider y={16} />
                 <Token
-                  name='eth'
+                  name='GH₵'
                   token={tokens?.eth}
                   price={totalTokensUSD?.eth}
                   disabled={!toAddress}
@@ -241,7 +241,7 @@ const Component = ({ onClose }) => {
 
                       <div>
                         <Button size='small' type='bezeled' onClick={handleChangeToken}>
-                          Cambiar
+                          Change
                         </Button>
                       </div>
                     </Flex>
@@ -254,7 +254,7 @@ const Component = ({ onClose }) => {
             {step === 'amount' ? (
               <>
                 <Text size='large' isBold>
-                  Cuanto deseas enviar
+                  How much do you want to send?
                 </Text>
                 <Divider y={16} />
                 <Flex gap={8}>
@@ -321,16 +321,16 @@ const Component = ({ onClose }) => {
           <Divider y={16} />
           <Flex direction={{ base: 'column-reverse', md: 'row' }} justify={'center'} gap={8}>
             <Button type='bezeledGray' onClick={handleCloseModal}>
-              Cancelar
+              Cancel
             </Button>
             {step === 'address' && (
               <Button onClick={() => toAddress && setStep('token')} isDisabled={!toAddress}>
-                {loading ? <Spinner /> : 'Continuar'}
+                {loading ? <Spinner /> : 'Continue'}
               </Button>
             )}
             {step === 'token' && (
               <Button onClick={() => tokenSelected && setStep('amount')} isDisabled={!tokenSelected}>
-                {loading ? <Spinner /> : 'Seleccionar'}
+                {loading ? <Spinner /> : 'Select'}
               </Button>
             )}
             {step === 'amount' && (
@@ -338,7 +338,7 @@ const Component = ({ onClose }) => {
                 onClick={() => setStep('sumary')}
                 isDisabled={!mount || mount === '0' || mount === '0.' || mount === '.' || mount === ','}
               >
-                {loading ? <Spinner /> : 'Continuar'}
+                {loading ? <Spinner /> : 'Continue'}
               </Button>
             )}
             {step === 'sumary' && (

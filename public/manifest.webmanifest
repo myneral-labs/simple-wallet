@@ -4,9 +4,9 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Sallet.app",
-  "short_name": "Sallet",
-  "description": "Aceptar cripto-activos nunca fue tan facil. Recibe pagos internacionales en tan solo 30 segundos.",
+  "name": "Wellmax.app",
+  "short_name": "Wellmax",
+  "description": "Wellmax wallet app",
   "icons": [
     {
       "src": "/icon-192x192.png",

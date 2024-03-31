@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   // Init Hotjar
   useEffect(() => {
-    hotjar.initialize(3238996, 6);
+    // hotjar.initialize(3238996, 6);
 
     // Google Analytics
     const handleRouteChange = (url) => {

@@ -73,7 +73,7 @@ const Backup = () => {
   return (
     <>
       <Head>
-        <title>Backup - Sallet</title>
+        <title>Backup - Wellmax</title>
       </Head>
       <Navbar />
       <ScreenView justify='center'>
@@ -90,11 +90,10 @@ const Backup = () => {
               </>
             ) : (
               <>
-                <Heading as='h2'>Frase semilla</Heading>
+                <Heading as='h2'>Key Phrase</Heading>
                 <Divider y={8} />
                 <Text size='large'>
-                  Es muy importante que guardes esta frase semilla. Es la clave principal para poder reclamar tus
-                  activos en cualquier wallet non-custodial.
+                  It is very important that you save this seed phrase. It is the main key to be able to claim your assets in any non-custodial wallet.
                 </Text>
               </>
             )
@@ -103,8 +102,7 @@ const Backup = () => {
               <Heading>Not your keys, not your coins</Heading>
               <Divider y={8} />
               <Text size='large'>
-                Nosotros te ayudamos a recibir pagos o donaciones desde cualquier parte del mundo, pero en realidad eres
-                tú el dueño de los activos.
+                We help you receive payments or credits from anywhere in the world, but in reality you are the owner of the assets.
               </Text>
             </>
           )}
@@ -140,17 +138,17 @@ const Backup = () => {
           <Divider y={16} />
           <Flex direction={{ base: 'column-reverse', md: 'row' }} justify={'center'} gap={8}>
             <Link href='/dashboard' type='bezeledGray' passHref>
-              Más tarde
+              Go back
             </Link>
-            {!showMnemonic && <Button onClick={handleShowMnemonic}>Continuar</Button>}
+            {!showMnemonic && <Button onClick={handleShowMnemonic}>Continue</Button>}
             {showMnemonic && !showValidateMnemonic && (
               <Button isDisabled={!hasSave} onClick={handleConfirmSaveMnemonic}>
-                Continuar
+                Continue
               </Button>
             )}
             {showMnemonic && showValidateMnemonic && (
               <Button brand='secondary' onClick={() => handleSubmit(localMnemonic)}>
-                Confirmar
+                Confirm
               </Button>
             )}
           </Flex>

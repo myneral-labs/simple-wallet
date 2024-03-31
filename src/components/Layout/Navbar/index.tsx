@@ -27,11 +27,11 @@ const Component: React.FunctionComponent<NavbarProps> = ({ title, type = 'page',
       <Container>
         <Flex w='100%' h={'60px'} alignItems='center' justifyContent='space-between'>
           <Flex alignItems={'center'} gap={4}>
-            <Image src='/logo.svg' alt='Sallet.app' width={'111px'} height={'40px'} />
+            <Image src='/logo.png' alt='Wellmax.app' width={'111px'} height={'40px'} />
             {!isPage && (
               <>
                 <Box width={'2px'} height={'30px'} bg='#F3F3F3' opacity={0.35} />
-                <Text isBold>{title === 'receive' ? 'Recibir' : 'Enviar'}</Text>
+                <Text isBold>{title === 'receive' ? 'Receive' : 'Send'}</Text>
               </>
             )}
           </Flex>
@@ -41,12 +41,12 @@ const Component: React.FunctionComponent<NavbarProps> = ({ title, type = 'page',
               wallet?.address ? (
                 <>
                   <Button size='small' brand='secondary' type='bezeled'>
-                    Ajustes
+                    Settings
                   </Button>
                 </>
               ) : (
                 <>
-                  <Link href='https://twitter.com/SalletApp' target='_blank' type='bezeled' size='small'>
+                  <Link href='https://twitter.com/WellmaxApp' target='_blank' type='bezeled' size='small'>
                     <Twitter />
                   </Link>
                   <Link href='https://discord.gg/VCQuJ7cq' target='_blank' type='bezeled' size='small'>
@@ -56,7 +56,7 @@ const Component: React.FunctionComponent<NavbarProps> = ({ title, type = 'page',
               )
             ) : (
               <Button size='small' type='borderless' onClick={onClose} tabIndex={1}>
-                Cancelar
+                Cancel
               </Button>
             )}
           </HStack>

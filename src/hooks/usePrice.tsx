@@ -1,6 +1,6 @@
 import bigNumberTokenToString from './useUtils';
 
-export function cryptoToUSD(price, token) {
+export function cryptoToGHS(price, token) {
   if (price && token) {
     return Number(price) * Number(bigNumberTokenToString(token));
   } else {

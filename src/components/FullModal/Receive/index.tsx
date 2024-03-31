@@ -21,7 +21,7 @@ const Component = ({ onClose }) => {
   const handleCopyAddress = async () => {
     try {
       await navigator.clipboard.writeText(wallet?.address?.eth);
-      toast({ description: 'Address copiada', status: 'success' });
+      toast({ description: 'Address copied', status: 'success' });
       onClose();
     } catch (err) {
       console.error('Failed to copy: ', err);
@@ -50,7 +50,7 @@ const Component = ({ onClose }) => {
               <AddressBox title='Address' address={wallet?.address?.eth} />
               <div>
                 <Button size='small' type='bezeled' onClick={handleCopyAddress}>
-                  Copiar
+                  Copy
                 </Button>
               </div>
             </Flex>

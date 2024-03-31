@@ -2,29 +2,30 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 
-const BlockchainContext = createContext({ kovanProvider: () => null, getGasPrice: () => null });
+const BlockchainContext = createContext({ myneralProvider: () => null, getGasPrice: () => null });
 
 export function BlockchainWrapper({ children }) {
-  const [kovanProvider, setKovanProvider] = useState();
+  const [myneralProvider, setMyneralProvider] = useState();
 
   useEffect(() => {
-    if (!kovanProvider) {
+    if (!myneralProvider) {
       // Mainnet: homestead
       // Testnet: goerli
-      const kovan = new ethers.providers.InfuraProvider('goerli', process.env.INFURA_TOKEN_API);
-      setKovanProvider(kovan);
+      // const myneral = new ethers.providers.InfuraProvider('goerli', process.env.INFURA_TOKEN_API);
+      const myneral = new ethers.providers.JsonRpcProvider('https://rpc2.sepolia.org');
+      setMyneralProvider(myneral);
     }
-  }, [kovanProvider]);
+  }, [myneralProvider]);
 
-  if (!kovanProvider) return;
+  if (!myneralProvider) return;
 
   // Obtener precio del gas
   const getGasPrice = async () => {
-    const gasPrice = await kovanProvider.getGasPrice();
+    const gasPrice = await myneralProvider.getGasPrice();
     return ethers.utils.formatEther(gasPrice);
   };
 
-  return <BlockchainContext.Provider value={{ kovanProvider, getGasPrice }}>{children}</BlockchainContext.Provider>;
+  return <BlockchainContext.Provider value={{ myneralProvider, getGasPrice }}>{children}</BlockchainContext.Provider>;
 }
 
 export function useBlockchain() {

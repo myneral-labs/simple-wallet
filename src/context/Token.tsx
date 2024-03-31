@@ -23,27 +23,27 @@ const TokenContext = createContext<TokenContextInterface | null>(null);
 // const addressDAI = '0x6B175474E89094C44Da98b954EedeAC495271d0F';
 
 // Test
-const addressDAI = '0x11fe4b6ae13d2a6055c8d9cf65c55bac32b5d844';
+const addressDAI = '0x68194a729c2450ad26072b3d33adacbcef39d574';
 
 export function TokenWrapper({ children }) {
   // Chakra
   const toast = useToast();
 
   // Context
-  const { kovanProvider } = useBlockchain();
+  const { myneralProvider } = useBlockchain();
   const { wallet, signer } = useAccount();
 
   // Component
   const [tokenETH, setTokenETH] = useState(ethers.constants.Zero);
   const [tokenDAI, setTokenDAI] = useState(ethers.constants.Zero);
 
-  const providerDAI = new ethers.Contract(addressDAI, abiDAI, kovanProvider);
+  const providerDAI = new ethers.Contract(addressDAI, abiDAI, myneralProvider);
 
   // Obtener balance de Ethereum y DAI
   if (!!wallet?.address?.eth) {
-    kovanProvider?.on('block', () => {
+    myneralProvider?.on('block', () => {
       if (tokenETH?.isZero() && tokenDAI?.isZero()) {
-        kovanProvider.getBalance(wallet?.address?.eth).then((balance) => {
+        myneralProvider.getBalance(wallet?.address?.eth).then((balance) => {
           if (!balance?.eq(tokenETH)) {
             setTokenETH(balance);
           }
@@ -58,7 +58,7 @@ export function TokenWrapper({ children }) {
     });
   }
 
-  // Enviar transaccion
+  // Send transaccion
   const sendTransaction = async (toAddress, mount, token) => {
     const addressIsValid = ethers.utils.isAddress(toAddress);
     if (addressIsValid) {
@@ -103,7 +103,7 @@ export function TokenWrapper({ children }) {
       }
     } else {
       toast({
-        description: 'La address parece ser incorrecta.',
+        description: 'The address appears to be incorrect.',
         status: 'warning',
       });
 
