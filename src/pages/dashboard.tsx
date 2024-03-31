@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { Text as TextDemo } from '@chakra-ui/react';
-import { ArrowDown, ArrowUp } from 'react-feather';
+import { ArrowDown, ArrowUp, Key } from 'react-feather';
 
 import { useAccount } from '../context/Account';
 import { useToken } from '../context/Token';
@@ -109,6 +109,10 @@ const Dashboard = ({ price }) => {
             <Divider x={16} />
             <ButtonCircle onClick={() => handleOpenFullModal('receive')} title='Receive'>
               <ArrowDown color='#111' />
+            </ButtonCircle>
+            <Divider x={16} />
+            <ButtonCircle brand='terciary' onClick={() => handleOpenFullModal('receive')} title='New Loan'>
+              <Key color='#111' />
             </ButtonCircle>
           </Flex>
 
