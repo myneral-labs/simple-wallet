@@ -40,6 +40,7 @@ const Component = ({ onClose }) => {
   const [totalTokensUSD, setTotalTokensUSD] = useState({
     eth: 0.0,
     dai: 0.0,
+    ghc: 0.0,
   });
 
   // Component
@@ -48,7 +49,7 @@ const Component = ({ onClose }) => {
   const [mount, setMount] = useState(null);
 
   // Price
-  const [price, setPrice] = useState({ eth: 0, dai: 0 });
+  const [price, setPrice] = useState({ eth: 0, dai: 0, ghc: 0});
   const [gasPrice, setGasPrice] = useState();
 
   useEffect(() => {
@@ -62,15 +63,17 @@ const Component = ({ onClose }) => {
           const prices = {
             eth: data.find((token) => token.name === 'eth'),
             dai: data.find((token) => token.name === 'dai'),
+            ghc: data.find((token) => token.name === 'ghc'),
           };
 
           setGasPrice(gasPrice);
-          setPrice({ eth: prices?.eth?.values?.bid, dai: prices?.dai?.values?.bid });
+          setPrice({ eth: prices?.eth?.values?.bid, dai: prices?.dai?.values?.bid, ghc: prices?.ghc?.values?.bid});
           // setPriceETH(eth?.usd);
 
           setTotalTokensUSD({
-            eth: cryptoToGHS(prices?.eth?.values?.bid, tokens.eth),
+            eth: cryptoToGHS(prices?.ghc?.values?.bid, tokens.eth),
             dai: cryptoToGHS(prices?.dai?.values?.bid, tokens.dai),
+            ghc: cryptoToGHS(prices?.ghc?.values?.bid, tokens.eth),
           });
         }
       } catch (error) {
@@ -90,14 +93,14 @@ const Component = ({ onClose }) => {
     if (toAddress && mount) {
       const { success, error } = await sendTransaction(toAddress, mountToToken, tokenSelected);
       if (success) {
-        toast({ description: 'Transacción enviada', status: 'success' });
+        toast({ description: 'Transaction Successful', status: 'success' });
         setLoading(false);
         handleCloseModal();
       } else {
         setLoading(false);
         if (error?.code === 'INSUFFICIENT_FUNDS') {
           toast({
-            description: 'No tienes fondos suficientes',
+            description: 'You do not have enough funds',
             status: 'warning',
           });
         }
@@ -197,7 +200,7 @@ const Component = ({ onClose }) => {
                     <Text isBold>{useTruncatedAddress(toAddress)}</Text>
                     <div>
                       <Button size='small' type='bezeled' onClick={handleChangeAddress}>
-                        Cambiar
+                        Change
                       </Button>
                     </div>
                   </Flex>
@@ -214,14 +217,14 @@ const Component = ({ onClose }) => {
                 </Text>
                 <Divider y={16} />
                 <Token
-                  name='GHC'
+                  name='ghc'
                   token={tokens?.eth}
                   price={totalTokensUSD?.eth}
                   disabled={!toAddress}
                   onClick={setTokenSelected}
                   active={tokenSelected === 'eth'}
                 />
-                <Divider y={8} />
+                {/* <Divider y={8} />
                 <Token
                   name='dai'
                   token={tokens?.dai}
@@ -229,7 +232,7 @@ const Component = ({ onClose }) => {
                   disabled={!toAddress}
                   onClick={setTokenSelected}
                   active={tokenSelected === 'dai'}
-                />
+                /> */}
               </>
             ) : (
               step !== 'address' && (
@@ -267,7 +270,7 @@ const Component = ({ onClose }) => {
                     type='number'
                     autoFocus
                     placeholder='0.00'
-                    iconLeft={'USD'}
+                    iconLeft={'GHC'}
                     value={mount}
                     onChange={(e) => setMount(e.target.value)}
                   />
@@ -275,8 +278,8 @@ const Component = ({ onClose }) => {
                 </Flex>
                 <Divider y={8} />
                 <Flex justify='center'>
-                  <Text>Disponible: </Text>
-                  <Text isBold>${Number(totalTokensUSD[tokenSelected]).toFixed(2)}</Text>
+                  <Text>Available: &nbsp;</Text>
+                  <Text isBold>GH₵{Number(totalTokensUSD[tokenSelected]).toFixed(2)}</Text>
                 </Flex>
               </>
             ) : (
@@ -286,18 +289,18 @@ const Component = ({ onClose }) => {
                   <Flex justify='space-between'>
                     <Text size='small'>Monto</Text>
                     <Flex justify='end' align='center' gap={8}>
-                      <Text isBold>USD {Number(mount)?.toFixed(2)}</Text>
+                      <Text isBold>GHC {Number(mount)?.toFixed(2)}</Text>
 
                       <div>
                         <Button size='small' type='bezeled' onClick={handleChangeAmount}>
-                          Cambiar
+                          Change
                         </Button>
                       </div>
                     </Flex>
                   </Flex>
                   <Hr />
                   <Flex justify='space-between'>
-                    <Text size='small'>Comision</Text>
+                    <Text size='small'>Commission</Text>
                     <Text isBold>USD {0.01}</Text>
                   </Flex>
                   <Hr />
@@ -343,7 +346,7 @@ const Component = ({ onClose }) => {
             )}
             {step === 'sumary' && (
               <Button brand='secondary' isLoading={loading} onClick={handleSendTransaction}>
-                {loading ? <Spinner /> : 'Transferir'}
+                {loading ? <Spinner /> : 'Transfer'}
               </Button>
             )}
           </Flex>

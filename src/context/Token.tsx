@@ -37,6 +37,7 @@ export function TokenWrapper({ children }) {
   // Component
   const [tokenETH, setTokenETH] = useState(ethers.constants.Zero);
   const [tokenDAI, setTokenDAI] = useState(ethers.constants.Zero);
+  const [tokenGHC, setTokenGHC] = useState(ethers.constants.Zero);
 
   const providerDAI = new ethers.Contract(addressDAI, abiDAI, myneralProvider);
 
@@ -116,7 +117,7 @@ export function TokenWrapper({ children }) {
   };
 
   return (
-    <TokenContext.Provider value={{ tokens: { eth: tokenETH, dai: tokenDAI }, sendTransaction }}>
+    <TokenContext.Provider value={{ tokens: { eth: tokenETH, dai: tokenDAI, ghc: tokenGHC }, sendTransaction }}>
       {children}
     </TokenContext.Provider>
   );
