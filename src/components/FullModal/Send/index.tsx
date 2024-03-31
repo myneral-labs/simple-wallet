@@ -301,7 +301,7 @@ const Component = ({ onClose }) => {
                   <Hr />
                   <Flex justify='space-between'>
                     <Text size='small'>Commission</Text>
-                    <Text isBold>USD {0.01}</Text>
+                    <Text isBold>GHC {0.01}</Text>
                   </Flex>
                   <Hr />
                   <Flex justify='space-between'>
