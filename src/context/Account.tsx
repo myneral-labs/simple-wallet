@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { ethers } from 'ethers';
+import { HDNodeWallet, Mnemonic, ethers } from 'ethers';
 import { useRouter } from 'next/router';
 import { useToast } from '@chakra-ui/react';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -67,10 +67,16 @@ export function AccountWrapper({ children }) {
       }
 
       if (!signer) {
-        const mnemonic = decrypt(JSON.parse(decryptAccount).seedPhrase).replaceAll('"', '');
-        const walletAccount = ethers.Wallet.fromMnemonic(mnemonic);
+        // Derivation path
+        const path = `m/49'/1'/0'/0`;
 
-        const signer = walletAccount.connect(myneralProvider);
+        // Use m/49'/0'/0'/0 for mainnet
+        // Use m/49'/1'/0'/0 for testnet
+        const mnemonic = decrypt(JSON.parse(decryptAccount).seedPhrase).replaceAll('"', '');
+        const mnemonicInstance = Mnemonic.fromPhrase(mnemonic);
+        const walletAccount = HDNodeWallet.fromMnemonic(mnemonicInstance);
+
+        const signer = walletAccount.connect(myneralProvider, path);
         setSigner(signer);
       }
     }

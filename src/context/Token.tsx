@@ -35,9 +35,9 @@ export function TokenWrapper({ children }) {
   const { wallet, signer } = useAccount();
 
   // Component
-  const [tokenETH, setTokenETH] = useState(ethers.constants.Zero);
-  const [tokenDAI, setTokenDAI] = useState(ethers.constants.Zero);
-  const [tokenGHC, setTokenGHC] = useState(ethers.constants.Zero);
+  const [tokenETH, setTokenETH] = useState(BigInt("0"));
+  const [tokenDAI, setTokenDAI] = useState(BigInt("0"));
+  const [tokenGHC, setTokenGHC] = useState(BigInt("0"));
 
   const providerDAI = new ethers.Contract(addressDAI, abiDAI, myneralProvider);
 
