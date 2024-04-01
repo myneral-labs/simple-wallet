@@ -23,7 +23,7 @@ const Component: React.FunctionComponent<NavbarProps> = ({ title, type = 'page',
   const isPage = type === 'page';
 
   return (
-    <Flex w='100%' paddingTop={process.env.MOBILE === '1' ? 36 : 0}>
+    <Flex w='100%' paddingTop={process.env.MOBILE === '1' ? 31 : 0}>
       <Container>
         <Flex w='100%' h={'60px'} alignItems='center' justifyContent='space-between'>
           <Flex alignItems={'center'} gap={4}>
@@ -31,7 +31,7 @@ const Component: React.FunctionComponent<NavbarProps> = ({ title, type = 'page',
             {!isPage && (
               <>
                 <Box width={'2px'} height={'30px'} bg='#F3F3F3' opacity={0.35} />
-                <Text isBold>{title === 'receive' ? 'Receive' : 'Send'}</Text>
+                <Text isBold>{title}</Text>
               </>
             )}
           </Flex>

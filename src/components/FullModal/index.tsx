@@ -5,6 +5,8 @@ import useKeyPress from 'src/hooks/useKeyPress';
 
 import Receive from './Receive';
 import Send from './Send';
+import NewLoan from './NewLoan';
+import Transactions from './Transactions';
 
 const Component = (props) => {
   const { open, onClose, type = null } = props;
@@ -38,6 +40,8 @@ const Component = (props) => {
         <VStack {...modalStyle}>
           {type === 'receive' && <Receive onClose={onClose} />}
           {type === 'send' && <Send onClose={onClose} />}
+          {type === 'newloan' && <NewLoan onClose={onClose} />}
+          {type === 'transactions' && <Transactions onClose={onClose} />}
         </VStack>
       )}
     </VStack>

@@ -111,7 +111,7 @@ const Dashboard = ({ price }) => {
               <ArrowDown color='#111' />
             </ButtonCircle>
             <Divider x={16} />
-            <ButtonCircle brand='terciary' onClick={() => handleOpenFullModal('receive')} title='New Loan'>
+            <ButtonCircle brand='terciary' onClick={() => handleOpenFullModal('newloan')} title='New Loan'>
               <Key color='#111' />
             </ButtonCircle>
           </Flex>
@@ -119,7 +119,7 @@ const Dashboard = ({ price }) => {
           <Divider y={32} />
 
           {/* Tokens */}
-          <Token name='WellMax Credit' token={tokens?.eth} price={cryptoToGHS(price?.ghc?.values?.bid, tokens?.eth)} readOnly />
+          <Token name='WellMax Credit' token={tokens?.eth} price={cryptoToGHS(price?.ghc?.values?.bid, tokens?.eth)} onClick={() => handleOpenFullModal('transactions')} />
           {/* <Token name='dai' token={tokens?.dai} price={cryptoToGHS(price?.dai?.values?.bid, tokens?.dai)} readOnly /> */}
         </Container>
       </ScreenView>

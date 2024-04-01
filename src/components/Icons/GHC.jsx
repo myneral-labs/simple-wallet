@@ -30,7 +30,7 @@ const iconGHC = () => {
     };
 
     return (
-        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 36 36">
+        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 36 36" style={{minWidth: '50px'}}>
             <circle style={cls5Styles} cx="18" cy="18" r="18"/>
             <g>
                 <path style={cls6Styles} d="M29.9,7.48c-.95.64-2.01-.49-1.42-1.38.09-.14.46-.36.63-.38,1.09-.15,1.6,1.21.78,1.76Z"/>
