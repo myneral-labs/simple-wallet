@@ -22,4 +22,8 @@ if (process.env.MOBILE === '1') {
   nextConfig.output = 'export';
 }
 
+if (process.env.STANDALONE === '1') {
+  nextConfig.output = 'standalone';
+}
+
 module.exports = withPWA(nextConfig);
