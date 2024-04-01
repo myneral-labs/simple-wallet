@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { BigNumber, ethers } from 'ethers';
 import { useToast } from '@chakra-ui/react';
 
@@ -16,6 +16,7 @@ interface TokenContextInterface {
     ghc: BigNumber;
   };
   sendTransaction: (address: string, mount: number, token: TokenName) => null;
+  transactionHistory: any[];
 }
 
 const TokenContext = createContext<TokenContextInterface | null>(null);
@@ -38,24 +39,42 @@ export function TokenWrapper({ children }) {
   const [tokenETH, setTokenETH] = useState(ethers.constants.Zero);
   const [tokenDAI, setTokenDAI] = useState(ethers.constants.Zero);
   const [tokenGHC, setTokenGHC] = useState(ethers.constants.Zero);
+  const [blockDebouncer, setBlockDebouncer] = useState(6);
+  const [transactionHistory, setTransactionHistory] = useState([]); // New state for the transaction history
 
   const providerDAI = new ethers.Contract(addressDAI, abiDAI, myneralProvider);
 
-  // Obtener balance de Ethereum y DAI
+    // Fetch transaction history
+    const fetchTransactionHistory = async () => {
+      if (wallet?.address?.eth) {
+        const response = await fetch(`https://explorer.myneral.com/api/accounts/${wallet.address.eth}/transactions`);
+        const data = await response.json();
+        setTransactionHistory(data.data);
+        // Reset the counter after fetching transaction history
+        setBlockDebouncer(0);
+      }
+    };
+  
+  // Get Eth balance, as well as txHistory. dai temp disable
   if (!!wallet?.address?.eth) {
     myneralProvider?.on('block', () => {
-      if (tokenETH?.isZero() && tokenDAI?.isZero()) {
+      // Increment the counter on each block
+      setBlockDebouncer((prevCounter) => prevCounter + 1);
+      if (tokenETH?.isZero()) { //if (tokenETH?.isZero() && tokenDAI?.isZero()) {
         myneralProvider.getBalance(wallet?.address?.eth).then((balance) => {
           if (!balance?.eq(tokenETH)) {
             setTokenETH(balance);
           }
         });
 
-        providerDAI.balanceOf(wallet?.address?.eth).then((balance) => {
-          if (!balance?.eq(tokenDAI)) {
-            setTokenDAI(balance);
-          }
-        });
+        // providerDAI.balanceOf(wallet?.address?.eth).then((balance) => {
+        //   if (!balance?.eq(tokenDAI)) {
+        //     setTokenDAI(balance);
+        //   }
+        // });
+      }
+      if ( blockDebouncer % 6 === 0) {
+        fetchTransactionHistory();
       }
     });
   }
@@ -117,7 +136,7 @@ export function TokenWrapper({ children }) {
   };
 
   return (
-    <TokenContext.Provider value={{ tokens: { eth: tokenETH, dai: tokenDAI, ghc: tokenGHC }, sendTransaction }}>
+    <TokenContext.Provider value={{ tokens: { eth: tokenETH, dai: tokenDAI, ghc: tokenGHC }, sendTransaction, transactionHistory }}>
       {children}
     </TokenContext.Provider>
   );
