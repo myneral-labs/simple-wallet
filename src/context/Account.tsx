@@ -140,8 +140,8 @@ export function AccountWrapper({ children }) {
       }
     } else {
       toast({
-        title: 'Frase semilla incorrecta',
-        description: 'Verifique que la frase semilla sea correcta.',
+        title: 'Incorrect seed phrase',
+        description: 'Verify that the seed phrase is correct.',
         status: 'warning',
       });
       return { success: false, error: null };

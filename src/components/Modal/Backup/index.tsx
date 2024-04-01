@@ -10,14 +10,14 @@ const Backup = () => {
       <ModalBody p='40px 20px' display='flex' w='100%' flexDirection='column' alignItems='initial' gap='20px'>
         <Flex flex='1' flexDirection='column' gap='20px' justifyContent='center' mb='20px'>
           <Flex flexDirection='column' alignItems='center' gap='20px' textAlign='center'>
-            <Heading as='h2'>Felicitaciones!</Heading>
+            <Heading as='h2'>Congratulations!</Heading>
             <Text opacity='.65'>
-              Asegúrate de guardar bien tu frase semilla, es la única forma de recuperar tus fondos.
+              Make sure to save your seed phrase well, it's the only way to recover your funds.
             </Text>
           </Flex>
         </Flex>
         <Link href='/dashboard' isBlock>
-          Ir al inicio
+          Go to home
         </Link>
       </ModalBody>
     </ModalContent>

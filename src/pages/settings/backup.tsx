@@ -84,7 +84,7 @@ const Backup = () => {
                 <Heading as='h2'>Revisémoslo nuevamente</Heading>
                 <Divider y={8} />
                 <Text size='size'>
-                  Escribe tu frase semilla en el orden en que estaban anteriormente para validar que lo has hecho bien
+                  Write your seed phrase in the order they were previously to validate that you have done it well
                   :)
                 </Text>
               </>
