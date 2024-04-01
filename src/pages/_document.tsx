@@ -1,14 +1,18 @@
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
 import { ColorModeScript } from '@chakra-ui/react';
+import type { Metadata } from 'next'
 
+export const metadata: Metadata = {
+  title: 'Welmmax Credit',
+  description: 'Accepting assets has never been so easy. Receive credit payments in just 30 seconds.',
+  viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover', // <-- now here
+}
 
 export default class Document extends NextDocument {
   render() {
     return (
       <Html>
         <Head>
-          {/* <title>Wellmax Credit - Wallet</title> */}
-
           {/* Favicon */}
           <link rel='apple-touch-icon' sizes='180x180' href='/img/favicon/apple-touch-icon.png' />
           <link rel='icon' type='image/png' sizes='32x32' href='/img/favicon/favicon-32x32.png' />
@@ -37,14 +41,6 @@ export default class Document extends NextDocument {
           <meta name='twitter:card' content='summary_large_image' />
           <meta name='twitter:image' content='/img/social/twitter-600x330.jpg' />
           <meta name='twitter:url' content='https://wellmax.app' />
-          {/* Add padding to the top of the body on iOS devices */}
-          {process.env.EXPORT == '1' && (
-            <style>{`
-              body {
-                padding-top: 35px;
-              }
-            `}</style>
-          )}
         </Head>
         <body>
           <ColorModeScript />

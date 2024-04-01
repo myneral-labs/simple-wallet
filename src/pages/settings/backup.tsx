@@ -54,8 +54,8 @@ const Backup = () => {
       onOpen();
     } else {
       toast({
-        title: 'Frase semilla incorrecta',
-        description: 'Verifique que la frase semilla sea correcta.',
+        title: 'Incorrect seed phrase',
+        description: 'Please verify that the seed phrase is correct.',
         status: 'warning',
       });
     }
@@ -127,7 +127,7 @@ const Backup = () => {
                 borderRadius='4px'
                 onChange={() => setHasSave(!hasSave)}
               >
-                Confirmo haberlas guardado
+                I confirm I have written it down
               </Checkbox>
             </>
           )}

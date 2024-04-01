@@ -23,9 +23,17 @@ const Component: React.FunctionComponent<NavbarProps> = ({ title, type = 'page',
   const isPage = type === 'page';
 
   return (
+    <>
+      <style jsx>{`
+        @supports (-webkit-touch-callout: none) {
+          .ios-padding {
+            padding-top: 20px; /* Adjust this value as needed */
+          }
+        }
+      `}</style>
     <Flex w='100%'>
       <Container>
-        <Flex w='100%' h={'60px'} alignItems='center' justifyContent='space-between'>
+        <Flex w='100%' h={'60px'} alignItems='center' justifyContent='space-between' className="ios-padding">
           <Flex alignItems={'center'} gap={4}>
             <Image src='/logo.png' alt='Wellmax.app' width={'111px'} height={'40px'} />
             {!isPage && (
@@ -63,6 +71,7 @@ const Component: React.FunctionComponent<NavbarProps> = ({ title, type = 'page',
         </Flex>
       </Container>
     </Flex>
+    </>
   );
 };
 

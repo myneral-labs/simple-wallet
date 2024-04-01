@@ -13,6 +13,7 @@ const nextConfig = {
   env: {
     SECRET_KEY: process.env.CRYPTO_SECRET_KEY,
     JSON_RPC_URL: process.env.JSON_RPC_URL,
+    EXPORT: process.env.EXPORT,
   },
 };
 

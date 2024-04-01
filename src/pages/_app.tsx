@@ -14,6 +14,7 @@ import { AccountWrapper } from '../context/Account';
 import { TokenWrapper } from '../context/Token';
 
 import * as gtag from '../lib/gtag';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -36,6 +37,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <Head>
+        <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover" />
+      </Head>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
       <Script strategy='afterInteractive' src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`} />
       <Script

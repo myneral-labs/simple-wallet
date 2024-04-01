@@ -301,7 +301,7 @@ const Component = ({ onClose }) => {
                   <Hr />
                   <Flex justify='space-between'>
                     <Text size='small'>Commission</Text>
-                    <Text isBold>GHC {0.01}</Text>
+                    <Text isBold>10%</Text>
                   </Flex>
                   <Hr />
                   <Flex justify='space-between'>
@@ -309,7 +309,7 @@ const Component = ({ onClose }) => {
                       Total
                     </Text>
                     <Text size='large' isBold>
-                      ${(Number(mount) * price.dai + Number(gasPrice) * price[tokenSelected]).toFixed(2)}
+                      GHC {(Number(mount) * price.dai + Number(gasPrice) * price[tokenSelected]).toFixed(2)}
                     </Text>
                   </Flex>
                 </>
