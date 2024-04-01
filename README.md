@@ -1,13 +1,18 @@
+## 💵 Confideo Wallet
+Custom cross-platform app to store WellMax Credits
+
+
 ## 💻 Tech Stack
 
 - [Next.js](https://nextjs.org/) for web app
 - [ChakraUI](https://chakra-ui.com/) for style components
 - [Ethers.js](https://ethers.org/) for client blockchain
 - [Infura](https://infura.io/) for API blockchain
+- [Capacitor.js](https://capacitorjs.com) for Mobile
 
 ## 🚀 Getting Started
 
-##### 1. Clone proyect:
+##### 1. Clone project:
 
 ```bash
 git clone ...
@@ -17,14 +22,18 @@ cd ...
 ##### 2. Create `.env.local` file:
 
 ```bash
-INFURA_TOKEN_API = 'API KEY from Infura'
+JSON_RPC_URL = https://wallet-connect.myneral.org
 CRYPTO_SECRET_KEY = 'KEY random for encrypt/decrypt'
 ```
 
-##### 3. Run the proyect:
+##### 3. Run the project:
 
 ```bash
 yarn run dev
+```
+##### 4. Build the mobile app
+```bash
+yarn mobile
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
