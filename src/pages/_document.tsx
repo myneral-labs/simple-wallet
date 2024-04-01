@@ -1,12 +1,5 @@
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
 import { ColorModeScript } from '@chakra-ui/react';
-import type { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'Welmmax Credit',
-  description: 'Accepting assets has never been so easy. Receive credit payments in just 30 seconds.',
-  viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover', // <-- now here
-}
 
 export default class Document extends NextDocument {
   render() {
