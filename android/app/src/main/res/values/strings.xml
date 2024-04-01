@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Wellmax Wallet</string>
+    <string name="title_activity_main">Wellmax Wallet</string>
+    <string name="package_name">com.wellmax.walletv1</string>
+    <string name="custom_url_scheme">com.wellmax.walletv1</string>
+</resources>
