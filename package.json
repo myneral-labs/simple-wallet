@@ -1,13 +1,13 @@
 {
   "name": "simple-wallet",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "mobile": "EXPORT=1 next build && yarn cap sync",
+    "mobile": "MOBILE=1 next build && yarn cap sync",
     "codegen": "graphclient build",
     "dev-gc": "graphclient serve-dev"
   },

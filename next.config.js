@@ -13,12 +13,12 @@ const nextConfig = {
   env: {
     SECRET_KEY: process.env.CRYPTO_SECRET_KEY,
     JSON_RPC_URL: process.env.JSON_RPC_URL,
-    EXPORT: process.env.EXPORT,
+    MOBILE: process.env.MOBILE,
   },
 };
 
 // If the EXPORT environment variable is set to '1', set output to 'export'
-if (process.env.EXPORT === '1') {
+if (process.env.MOBILE === '1') {
   nextConfig.output = 'export';
 }
 
