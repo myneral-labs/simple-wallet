@@ -27,6 +27,8 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 ENV NEXT_TELEMETRY_DISABLED 1
 ENV STANDALONE 1
+ENV CRYPTO_SECRET_KEY ABKSHJDBAJKSBDJKASBDKJBASKJDBASJKBDJKABKJDJKS
+ENV JSON_RPC_URL https://wallet-connect.myneral.org
 
 RUN \
   if [ -f yarn.lock ]; then yarn run build; \
@@ -61,6 +63,8 @@ USER nextjs
 
 EXPOSE 3000
 
+ENV CRYPTO_SECRET_KEY ABKSHJDBAJKSBDJKASBDKJBASKJDBASJKBDJKABKJDJKS
+ENV JSON_RPC_URL https://wallet-connect.myneral.org
 ENV PORT 3000
 
 # server.js is created by next build from the standalone output
