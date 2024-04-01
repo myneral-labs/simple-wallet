@@ -110,7 +110,6 @@ out/
 
 # General project
 package-lock.json
-yarn.lock
 
 # PWA
 public/sw.js
