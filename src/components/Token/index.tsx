@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Image } from '@chakra-ui/react';
 
 import Text from 'src/components/Shared/Text';
 import Flex from 'src/components/Shared/Flex';
@@ -6,6 +6,7 @@ import Flex from 'src/components/Shared/Flex';
 import IconETH from 'src/components/Icons/ETH';
 import IconDAI from 'src/components/Icons/DAI';
 import IconGHC from 'src/components/Icons/GHC';
+import WellMaxSymbol from 'src/components/Icons/WELLMAX_SYMBOL.png';
 
 import bigNumberTokenToString from 'src/hooks/useUtils';
 
@@ -36,7 +37,7 @@ const Component = (props) => {
   return (
     <Box {...style} onClick={() => !readOnly && onClick(name)} tabIndex={readOnly ? -1 : 1}>
       <Flex align='center' gap={8}>
-        {name === 'WellMax Credit' ? <IconGHC /> : <IconETH />}
+        {name === 'WellMax Credit' ? <Image width={50} src={WellMaxSymbol.src} /> : <IconETH />}
         <Text fontWeight='bold'>{name.toUpperCase()}</Text>
       </Flex>
       <Flex direction='column' align='flex-end'>
